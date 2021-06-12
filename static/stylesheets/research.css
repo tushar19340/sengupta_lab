@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 7rem;
+}
+div.research-card {
+    background-color: white;
+    /* color: white; */
+    padding: 2rem clamp(1rem, 1vw, 2rem) 2rem clamp(1rem, 1vw, 2rem);
+    margin-bottom: 5rem;
+    padding-right: 0;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%) !important;
+    border-left: 0.3rem solid yellowgreen;
+}
+.research-card-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.research-card-heading a {
+    text-decoration: none;
+}
+.research-card-image img {
+    width: 100%;
+}
+div.research-card-image {
+    padding: 1rem 1rem 1rem 0;
+    height: fit-content;
+}
+.gray p {
+    color: gray;
+}
+
+div.research-card-body {
+    /* font-size: 1rem; */
+}

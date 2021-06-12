@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/team.css' %}" />
+
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <!-- <div class="background">
+        <h1 class="heading">Our Team</h1>
+    </div> -->
+    <div class="container">
+
+        <div class="filter d-flex flex-wrap justify-content-center align-items-center my-5">
+            <p>Filter</p>
+            <button onclick="eventAll(this)" class="btn btn-default me-3 active">
+                All
+            </button>
+            <button onclick="eventBtech(this)" class="btn btn-default me-3">
+                Btech
+            </button>
+            <button onclick="eventMtech(this)" class="btn btn-default me-3">
+                Mtech
+            </button>
+            <button onclick="eventPHD(this)" class="btn btn-default me-3">
+                PHD
+            </button>
+            <button onclick="eventOther(this)" class="btn btn-default me-3">
+                Other
+            </button>
+        </div>
+
+        <div id="All">
+            <div class="team-cards row row-cols-1 row-cols-md-3 gy-5">
+                {% for member in team %}
+                <div class="col">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-image-div">
+                                <img src="{{member.imageUrl}}" alt="Avatar">
+                            </div>
+                            <div class="front-body">
+                                <div>
+                                    <h3 class="font-granville-bold">{{member.name}}</h3>
+                                    <h5>{{member.designation}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="font-granville-bold">{{member.name}}</h3> 
+                            <div class="card-back-text">
+                                <p>{{member.about | safe}}</p> 
+                            </div>
+                            <div>
+                                <a href="{{member.linkedin}}"><i class="bi bi-linkedin"></i></a>
+                                <a href="mailto: {{member.email}}"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="{{member.github}}"><i class="bi bi-github"></i></a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>         
+                {% endfor%}
+            </div>
+        </div>
+
+        <div id="Btech" class="hide">
+            <div class="team-cards row row-cols-1 row-cols-md-3 gy-5">
+                {% for member in team %}
+                    {% if member.category == "Btech" %}
+                        <div class="col">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-image-div">
+                                        <img src="{{member.imageUrl}}" alt="Avatar">
+                                    </div>
+                                    <div class="front-body">
+                                        <div>
+                                            <h3 class="font-granville-bold">{{member.name}}</h3>
+                                            <h5>{{member.designation}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="font-granville-bold">{{member.name}}</h3> 
+                                    <div class="card-back-text">
+                                        <p>{{member.about | safe}}</p> 
+                                    </div>
+                                    <div>
+                                        <a href="{{member.linkedin}}"><i class="bi bi-linkedin"></i></a>
+                                        <a href="mailto: {{member.email}}"><i class="bi bi-envelope-fill"></i></a>
+                                        <a href="{{member.github}}"><i class="bi bi-github"></i></a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>  
+                    {% endif %}
+                {% endfor%}
+            </div>
+        </div>
+
+
+        <div id="Mtech" class="hide">
+            <div class="team-cards row row-cols-1 row-cols-md-3 gy-5">
+                {% for member in team %}
+                    {% if member.category == "Mtech" %}
+                        <div class="col">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-image-div">
+                                        <img src="{{member.imageUrl}}" alt="Avatar">
+                                    </div>
+                                    <div class="front-body">
+                                        <div>
+                                            <h3 class="font-granville-bold">{{member.name}}</h3>
+                                            <h5>{{member.designation}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="font-granville-bold">{{member.name}}</h3> 
+                                    <div class="card-back-text">
+                                        <p>{{member.about | safe}}</p> 
+                                    </div>
+                                    <div>
+                                        <a href="{{member.linkedin}}"><i class="bi bi-linkedin"></i></a>
+                                        <a href="mailto: {{member.email}}"><i class="bi bi-envelope-fill"></i></a>
+                                        <a href="{{member.github}}"><i class="bi bi-github"></i></a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>  
+                    {% endif %}
+                {% endfor%}
+            </div>
+        </div>
+
+
+        <div id="PHD" class="hide">
+            <div class="team-cards row row-cols-1 row-cols-md-3 gy-5">
+                {% for member in team %}
+                    {% if member.category == "PHD" %}
+                        <div class="col">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-image-div">
+                                        <img src="{{member.imageUrl}}" alt="Avatar">
+                                    </div>
+                                    <div class="front-body">
+                                        <div>
+                                            <h3 class="font-granville-bold">{{member.name}}</h3>
+                                            <h5>{{member.designation}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="font-granville-bold">{{member.name}}</h3> 
+                                    <div class="card-back-text">
+                                        <p>{{member.about | safe}}</p> 
+                                    </div>
+                                    <div>
+                                        <a href="{{member.linkedin}}"><i class="bi bi-linkedin"></i></a>
+                                        <a href="mailto: {{member.email}}"><i class="bi bi-envelope-fill"></i></a>
+                                        <a href="{{member.github}}"><i class="bi bi-github"></i></a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>  
+                    {% endif %}
+                {% endfor%}
+            </div>
+        </div>
+
+
+        <div id="Other" class="hide">
+            <div class="team-cards row row-cols-1 row-cols-md-3 gy-5">
+                {% for member in team %}
+                    {% if member.category == "Other" %}
+                        <div class="col">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-image-div">
+                                        <img src="{{member.imageUrl}}" alt="Avatar">
+                                    </div>
+                                    <div class="front-body">
+                                        <div>
+                                            <h3 class="font-granville-bold">{{member.name}}</h3>
+                                            <h5>{{member.designation}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="font-granville-bold">{{member.name}}</h3> 
+                                    <div class="card-back-text">
+                                        <p>{{member.about | safe}}</p> 
+                                    </div>
+                                    <div>
+                                        <a href="{{member.linkedin}}"><i class="bi bi-linkedin"></i></a>
+                                        <a href="mailto: {{member.email}}"><i class="bi bi-envelope-fill"></i></a>
+                                        <a href="{{member.github}}"><i class="bi bi-github"></i></a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>  
+                    {% endif %}
+                {% endfor%}
+            </div>
+        </div>
+                     
+    </div>
+{% endblock body %}
+
+{% block jsScript %}
+    <script src="{% static 'js/team.js' %}"></script>
+{% endblock jsScript %}

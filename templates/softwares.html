@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load static %} {% block stylesheets %}
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'stylesheets/software.css' %}"
+/>
+
+{% endblock stylesheets %} {% block body %}
+
+<!-- <div class="background">
+    <h1 class="heading">Softwares</h1>
+</div> -->
+
+<div class="container">
+    {% for s in softwares %}
+        <div class="card">
+            <div class="card-title pb-2">
+                <h2><a href="{{s.github_link}}">{{s.title}}</a></h2>
+            </div>
+            <div class="desc">
+                <p>{{s.desc}}</p>
+            </div>
+            <div class="tags">
+                <ul class="card-list">
+                    {% if s.ml %}
+                        <li class="tag ml-tag">ML</li>
+                    {% endif %}
+
+                    {% if s.comp_bio %}
+                        <li class="tag comp-bio-tag">COMP BIO</li>
+                    {% endif %}
+
+                    {% if s.single_cells %}
+                        <li class="tag single-cells-tag">SINGLE CELL</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock body %} 
+
+{% block jsScript %} {% endblock jsScript %}

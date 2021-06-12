@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/about.css' %}" />
+{% endblock stylesheets %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col about-image">
+            <img src="{{about.img_url}}" alt="Image">
+        </div>
+        <div class="col about-text">
+            <h1 class="font-granville-bold">Sengupta Debarka</h1>
+            <p>{{about.About | safe}}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

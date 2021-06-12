@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 6rem;
+}
+.about-text p {
+    color: gray;
+}
+.about-image {
+    padding: 2rem;
+}
+.about-image img {
+    width: 80%;
+    display: block;
+    margin: auto;
+    border-left: 0.3rem solid yellowgreen;
+    border-bottom: 0.3rem solid yellowgreen;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
+
+.about-text {
+    padding: 1rem;
+}
+.about-text p {
+    font-size: 1.2rem;
+}

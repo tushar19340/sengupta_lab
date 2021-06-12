@@ -1,0 +1,25 @@
+
+.container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.card {
+    border: white;
+    /* margin: 1rem; */
+    /* box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%)!important; */
+}
+.card-text {
+    font-size: 1.2rem;
+}
+div.user-profile {
+    box-shadow: 0 10px 16px 0 rgb(118 165 46 / 80%)!important;
+    border-left: 0.3rem solid yellowgreen;
+    border-bottom: 0.3rem solid yellowgreen;
+    padding: 2rem;
+}
+.details p {
+    font-size: 1.2rem;
+}
+.details ul {
+    font-size: 1.2rem;
+}

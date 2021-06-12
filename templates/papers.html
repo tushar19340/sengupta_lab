@@ -1,0 +1,253 @@
+{% extends 'base.html' %} {% load static %} {% block stylesheets %}
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'stylesheets/papers.css' %}"
+/>
+
+{% endblock stylesheets %} {% block body %}
+
+<!-- <div class="background">
+    <h1 class="heading">Papers</h1>
+</div> -->
+
+<div class="container">
+    <div class="filter d-flex flex-wrap justify-content-center align-items-center">
+        <p>Filter</p>
+        <button onclick="eventAll(this)" class="btn btn-default active mx-3">
+            All
+        </button>
+        <button onclick="eventML(this)" class="btn btn-default">ML</button>
+        <button onclick="eventGenomics(this)" class="btn btn-default mx-3">
+            Genomics
+        </button>
+        <button onclick="eventOthers(this)" class="btn btn-default">
+            Other
+        </button>
+    </div>
+
+    <div class="" id="All">
+        <!-- <h1 class="text-center my-5">Machine Learning</h1> -->
+        <div class="row row-cols-1 my-3 g-5">
+            {% for p in papers %}
+            <div class="col">
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="id{{p.id}}">
+                        <div class="flip-card-front">
+                            <div class="row g-0" style="height: 100%">
+                                <div class="col-md-4 card-image-div">
+                                    <img src="{{p.imageUrl}}" alt="..." />
+                                </div>
+                                <div class="col-md-8 card-body d-flex flex-column justify-content-between">
+                                    <div class="card-title">
+                                        <h3 class="font-granville-bold">{{p.title}}</h3>
+                                    </div>
+                                    <div>
+                                        <p class="card-text mb-0">
+                                            <small class="text-muted">
+                                                Authors: {{p.authors}}
+                                            </small>
+                                        </p>
+                                        
+                                        <div class="links" id="1">
+                                            <p class="card-text m-0">
+                                                
+                                                <small class="text-muted">
+                                                    {{p.journal_name}} - 
+                                                </small>
+                                                <a href="{{p.journalLink}}"
+                                                >Journal </a>
+                                            </p>
+                                            <p class="m-0">Year: {{p.date.year}}</p>
+                                            <a class="" href="{{p.doiLink}}">DOI</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="abstract">
+                                <h3>Abstract</h3>
+                                <p>{{p.abstract}}</p>
+                            </div>
+                            <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >Back</button>
+                        </div>
+                        <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >View more</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="hide" id="ML">
+        <!-- <h1 class="text-center my-5">Machine Learning</h1> -->
+        <div class="row row-cols-1 my-3 g-5">
+            {% for p in papers %} {% if p.category == "ml" %}
+            <div class="col">
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="id{{p.id}}">
+                        <div class="flip-card-front">
+                            <div class="row g-0" style="height: 100%">
+                                <div class="col-md-4 card-image-div">
+                                    <img src="{{p.imageUrl}}" alt="..." />
+                                </div>
+                                <div class="col-md-8 card-body d-flex flex-column justify-content-between">
+                                    <div class="card-title">
+                                        <h3 class="font-granville-bold">{{p.title}}</h3>
+                                    </div>
+                                    <div>
+                                        <p class="card-text mb-0">
+                                            <small class="text-muted">
+                                                Authors: {{p.authors}}
+                                            </small>
+                                        </p>
+                                        
+                                        <div class="links" id="1">
+                                            <p class="card-text m-0">
+                                                
+                                                <small class="text-muted">
+                                                    {{p.journal_name}} - 
+                                                </small>
+                                                <a href="{{p.journalLink}}"
+                                                >Journal </a>
+                                            </p>
+                                            <p class="m-0">Year: {{p.date.year}}</p>
+                                            <a class="" href="{{p.doiLink}}">DOI</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="abstract">
+                                <h3>Abstract</h3>
+                                <p>{{p.abstract}}</p>
+                            </div>
+                            <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >Back</button>
+                        </div>
+                        <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >View more</button>
+                    </div>
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+        </div>
+    </div>
+    <div class="hide" id="Genomics">
+        <!-- <h1 class="text-center my-5">Genomics</h1> -->
+        <div class="row row-cols-1 my-3 g-4">
+            {% for p in papers %} {% if p.category == "genomics" %}
+            <div class="col">
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="id{{p.id}}">
+                        <div class="flip-card-front">
+                            <div class="row g-0" style="height: 100%">
+                                <div class="col-md-4 card-image-div">
+                                    <img src="{{p.imageUrl}}" alt="..." />
+                                </div>
+                                <div class="col-md-8 card-body d-flex flex-column justify-content-between">
+                                    <div class="card-title">
+                                        <h3 class="font-granville-bold">{{p.title}}</h3>
+                                    </div>
+                                    <div>
+                                        <p class="card-text mb-0">
+                                            <small class="text-muted">
+                                                Authors: {{p.authors}}
+                                            </small>
+                                        </p>
+                                        
+                                        <div class="links" id="1">
+                                            <p class="card-text m-0">
+                                                
+                                                <small class="text-muted">
+                                                    {{p.journal_name}} - 
+                                                </small>
+                                                <a href="{{p.journalLink}}"
+                                                >Journal </a>
+                                            </p>
+                                            <p class="m-0">Year: {{p.date.year}}</p>
+                                            <a class="" href="{{p.doiLink}}">DOI</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="abstract">
+                                <h3>Abstract</h3>
+                                <p>{{p.abstract}}</p>
+                            </div>
+                            <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >Back</button>
+                        </div>
+                        <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >View more</button>
+                    </div>
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+        </div>
+    </div>
+    <div class="hide" id="Others">
+        <!-- <h1 class="text-center my-5">Others</h1> -->
+        <div class="row row-cols-1 my-3 g-4">
+            {% for p in papers %} {% if p.category == "other" %}
+            <div class="col">
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="id{{p.id}}">
+                        <div class="flip-card-front">
+                            <div class="row g-0" style="height: 100%">
+                                <div class="col-md-4 card-image-div">
+                                    <img src="{{p.imageUrl}}" alt="..." />
+                                </div>
+                                <div class="col-md-8 card-body d-flex flex-column justify-content-between">
+                                    <div class="card-title">
+                                        <h3 class="font-granville-bold">{{p.title}}</h3>
+                                    </div>
+                                    <div>
+                                        <p class="card-text mb-0">
+                                            <small class="text-muted">
+                                                Authors: {{p.authors}}
+                                            </small>
+                                        </p>
+                                        
+                                        <div class="links" id="1">
+                                            <p class="card-text m-0">
+                                                
+                                                <small class="text-muted">
+                                                    {{p.journal_name}} - 
+                                                </small>
+                                                <a href="{{p.journalLink}}"
+                                                >Journal </a>
+                                            </p>
+                                            <p class="m-0">Year: {{p.date.year}}</p>
+                                            <a class="" href="{{p.doiLink}}">DOI</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="abstract">
+                                <h3>Abstract</h3>
+                                <p>{{p.abstract}}</p>
+                            </div>
+                            <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >Back</button>
+                        </div>
+                        <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >View more</button>
+                    </div>
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    function flip(id) {
+        document.getElementById(id).classList.toggle("flip")
+    }
+</script>
+{% endblock body %}
+    <script src=""></script>
+{% block jsScript %}
+    <script src="{% static 'js/papers.js' %}"></script>
+{% endblock jsScript %}

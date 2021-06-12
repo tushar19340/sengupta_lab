@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow-x: hidden;
+}
+#carouselExampleIndicators {
+    /* height: 80vh; */
+    margin-top: 6rem;
+    padding: 2rem;
+    /* box-shadow: 0 0 8px 0 rgb(0 0 0 / 20%) !important; */
+}
+.green{
+    color: darkgreen;
+    font-weight: bold;
+}
+.orange{
+    color: darkorange;
+    font-weight: bold;
+}
+.lab-info {
+    padding: 2rem;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
+.lab-info p{
+    font-size: 1rem;
+    color: gray;
+}
+.lab-info img {
+    width: 100%;
+    /* display: block; */
+    margin-bottom: 1rem;
+    float: left;
+}
+

@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load static %} {% block stylesheets %}
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'stylesheets/news.css' %}"
+/>
+
+{% endblock stylesheets %} {% block body %}
+<!-- <div class="background">
+    <h1 class="heading">News</h1>
+</div> -->
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+        {% for n in news %}
+        <div class="col">
+            <div class="row news-card">
+                <div class="col-sm-12 col-md-7 order-1 order-md-0">
+                    <h5 class="card-title">
+                        <a href="{{n.link}}">{{n.title}}</a>
+                    </h5>
+                    <p class="m-0 text-muted">
+                        {{n.sub_text}}
+                    </p>
+                    <p class="m-0 text-muted">
+                        <small>{{n.date}}</small>
+                    </p>
+                    <p class="card-text">
+                        {{n.desc}}
+                    </p>
+                    <!-- <a href="#" class="card-link btn btn-primary w-50">Visit</a> -->
+                </div>
+                <div class="col-sm-12 col-md-5 news-image order-0 order-md-1">
+                    {% if n.image_url %}
+                        <img src="{{n.image_url}}" alt="Image">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

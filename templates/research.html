@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/research.css' %}" />
+
+{% endblock stylesheets %}
+
+
+{% block body %}
+<!-- <div class="background">
+    <h1 class="heading">Research</h1>
+</div> -->
+
+<div class="container">
+    
+    {% for r in research %}
+
+    <div class="research-card row">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 research-card-heading">
+                <div class="research-card-image">
+                    <img src="{{r.image_Url}}" alt="Image">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 research-card-body">
+                <div class="research-card-text gray">
+                    <h1 class="font-granville-bold">{{r.title}}</h1>
+                    <p>{{r.info | safe}}.</p>
+                </div>
+                <div class="research-card-publication gray">
+                    <h2 class="font-granville-bold">Publication</h2>
+                    <p>{{r.publication_details | safe}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}
+
+{% block jsScript %}
+    
+{% endblock jsScript %}
