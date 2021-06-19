@@ -68,24 +68,26 @@ class Paper(models.Model):
     def __str__(self):
         return self.title
 
+class Member_Type(models.Model):
+    name = models.CharField("Add new category", max_length=20)
 
+    class Meta:
+        verbose_name_plural = "Member Type"
+
+    def __str__(self):
+        return self.name
 
 class Team(models.Model):
-    choices = (
-        ("Btech", "Btech "),
-        ("Mtech", "Mtech"),
-        ("PHD", "PHD"),
-        ("Other", "other")
-    )
 
     name = models.CharField(max_length=100)
-    category = models.CharField(max_length=25,choices=choices, default='other')
     imageUrl = models.TextField(help_text='<p style="color:darkgreen">*<b>IMPORTANT </b> Square Dimensions Only*</p>')
     designation = models.CharField(max_length=100)
     about = RichTextField()
     email = models.CharField(max_length=100)
     github = models.CharField(max_length=100)
     linkedin = models.CharField(max_length=100)
+
+    member_type = models.ManyToManyField(Member_Type, blank=True)
 
     class Meta:
         verbose_name_plural = "Team"

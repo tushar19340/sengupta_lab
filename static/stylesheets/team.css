@@ -3,9 +3,12 @@
     margin: 0;
 }
 
-.container {
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+body {
+    overflow-x: hidden;
+}
+.wrapper {
+    margin: 7rem auto;
+    width: 95%;
 }
 div.background {
     position: relative;
@@ -137,4 +140,20 @@ div.card-back-text {
 i {
     font-size: 2rem;
     padding-right: 0.5rem;
+}
+
+
+/* ----------------- Filter CSS ----------------- */
+
+div.filter-input {
+    padding-left: 1rem;
+    border-left: 1px solid gray;
+
+}
+.filter-div label {
+    color: gray;
+    margin-bottom: 1rem;
+}
+.filter-div button{
+    margin: auto;
 }

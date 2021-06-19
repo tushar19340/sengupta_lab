@@ -24,12 +24,31 @@ def research(request):
     return render(request, 'research.html', context)
     
 def team(request):
-    team = models.Team.objects.all()
+    Member_Type = models.Member_Type.objects.all()    
+    Team = models.Team.objects.all()
+
+    requested_filters = request.GET.getlist('filter_list')
+    print("requested filters: ", requested_filters)
+    
+    if len(requested_filters) > 0:
+        filtered_Team = []
+
+        for p in Team:
+            categories = p.member_type.all()
+            for category in categories:
+                # print(category)
+                # print(requested_filters)
+                if category.name in requested_filters:
+                    filtered_Team.append(p)
+                    break            
+            Team = filtered_Team
+
     context = {
-        'team': team,
+        'team': Team,
+        'filters': Member_Type,
+        'active_filters': requested_filters,
         'team_page': 'active'
     }
-
     return render(request, 'team.html', context)
 
 def papers(request):
@@ -45,10 +64,10 @@ def papers(request):
 
         for p in Papers:
             categories = p.category.all()
-            for categories in categories:
-                # print(categories)
+            for category in categories:
+                # print(category)
                 # print(requested_filters)
-                if categories.name in requested_filters:
+                if category.name in requested_filters:
                     filtered_papers.append(p)
                     break            
             Papers = filtered_papers

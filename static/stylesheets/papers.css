@@ -5,31 +5,10 @@
 body {
     overflow-x: hidden;
 }
-
-div.background {
-    position: relative;
-    margin-top: 80px;
-    height: 35vh;
-    
-    width: 100%;
-    /* background: #83a4d4;  
-    background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);   */
-    background: linear-gradient(to right, #b6fbff, #83a4d4);  
+.wrapper {
+    margin: 7rem auto;
+    width: 95%;
 }
-
-.heading {
-    position: absolute;
-    font-family: 'Mate SC', serif;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(3rem, 10vw, 6rem);
-}
-
-.container {
-    margin-top: 7rem;
-}
-
 p {
     color: gray;
 }
