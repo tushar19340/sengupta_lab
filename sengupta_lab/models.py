@@ -29,6 +29,7 @@ class Footer(models.Model):
     image_1 = models.TextField(blank=True, null=True)
     image_2 = models.TextField(blank=True, null=True)
 
+
 class Paper(models.Model):
     choices = (
         ("ml", "Machine Learning"),
@@ -36,7 +37,7 @@ class Paper(models.Model):
         ("other", "Other"),
     )
 
-    title = models.TextField()
+    title = models.TextField("Paper title")
     category = models.CharField(max_length=25,choices=choices, default='other')
     imageUrl = models.TextField(help_text='<p style="color:darkgreen">*<b>IMPORTANT: </b>Landscape Orientation Only (Width of image should be more than height)*</p>')
     date = models.DateField(blank=True, null=True)
@@ -109,14 +110,21 @@ class Research(models.Model):
     def __str__(self):
         return self.title
 
+
+class Software_Tag(models.Model):
+    name = models.CharField("Tag Name", max_length=20)
+    color = models.CharField("Add color of the tag", max_length=10)
+
+    def __str__(self):
+        return self.name
+
 class Software(models.Model):
     title = models.CharField(max_length=100)
     desc = models.TextField()
     github_link = models.CharField(max_length=250)
-    ml = models.BooleanField(default=False)
-    comp_bio = models.BooleanField(default=False)
-    single_cells = models.BooleanField(default=False)
 
+    tags = models.ManyToManyField(Software_Tag, blank = True)
+    
     def __str__(self):
         return self.title
 

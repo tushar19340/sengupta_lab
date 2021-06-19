@@ -10,6 +10,7 @@ nav.navbar {
 }
 a.nav-link {
     border-bottom: 2px solid white;
+    text-transform: uppercase;
 }
 a.nav-link:hover {
     color: yellowgreen;

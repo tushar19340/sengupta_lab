@@ -16,8 +16,8 @@
     width: 80%;
     display: block;
     margin: auto;
-    border-left: 0.3rem solid yellowgreen;
-    border-bottom: 0.3rem solid yellowgreen;
+    border-left: 0.5rem solid yellowgreen;
+    border-bottom: 0.5rem solid yellowgreen;
     box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
 }
 
