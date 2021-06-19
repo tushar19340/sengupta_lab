@@ -40,10 +40,10 @@
             <div class="filter-div">
                 <h3 class="text-center">FILTER</h3>
                 <div class="filter-input">
-                    <form action="/softwares" method="POST">
+                    <form action="/softwares" method="GET">
                         {% csrf_token %}
                         {% for option in filters %}
-                            <input type="checkbox" id="{{option.name}}" name="filter_list" value="{{option.name}}">
+                            <input type="checkbox" id="{{option.name}}" name="filter_list" value="{{option.name}}" {% if option.name in active_filters %} checked {% endif %}>
                             <label for="{{option.name}}">{{option.name}}</label><br>
                         {% endfor %}
                         <button class="btn btn-primary w-100" type="submit">Apply</button>

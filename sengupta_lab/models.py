@@ -19,6 +19,9 @@ class Home(models.Model):
     image_url5 = models.TextField(blank=True, null=True, help_text=image_desc)
     text_para = RichTextField()
 
+    class Meta:
+        verbose_name_plural = "Home"
+
 class Footer(models.Model):
 
     address = RichTextField(blank=True, null=True)
@@ -29,23 +32,35 @@ class Footer(models.Model):
     image_1 = models.TextField(blank=True, null=True)
     image_2 = models.TextField(blank=True, null=True)
 
+    class Meta:
+        verbose_name_plural = "Footer"
+
+
+class Papers_Category(models.Model):
+    name = models.CharField("Add new category", max_length=20)
+    # color = models.CharField("Add color of the tag", max_length=10)
+    class Meta:
+        verbose_name_plural = "Papers Category"
+
+    def __str__(self):
+        return self.name
 
 class Paper(models.Model):
-    choices = (
-        ("ml", "Machine Learning"),
-        ("genomics", "Genomics"),
-        ("other", "Other"),
-    )
+    # choices = (
+    #     ("ml", "Machine Learning"),
+    #     ("genomics", "Genomics"),
+    #     ("other", "Other"),
+    # )
 
-    title = models.TextField("Paper title")
-    category = models.CharField(max_length=25,choices=choices, default='other')
+    title = models.CharField("Paper Title", max_length=100)
     imageUrl = models.TextField(help_text='<p style="color:darkgreen">*<b>IMPORTANT: </b>Landscape Orientation Only (Width of image should be more than height)*</p>')
     date = models.DateField(blank=True, null=True)
     authors = models.CharField(max_length=200)
     journal_name = models.CharField(max_length=100)
     doiLink = models.TextField()
-    journalLink = models.TextField()
     abstract = RichTextField()
+
+    category = models.ManyToManyField(Papers_Category, blank=True)
 
     class meta:
         verbose_name_plural = 'Publications'
@@ -72,8 +87,8 @@ class Team(models.Model):
     github = models.CharField(max_length=100)
     linkedin = models.CharField(max_length=100)
 
-    class meta:
-        verbose_name_plural = 'Team Members'
+    class Meta:
+        verbose_name_plural = "Team"
 
     def __str__(self):
         return self.name
@@ -89,9 +104,8 @@ class News(models.Model):
     link = models.TextField()
     desc = models.TextField(blank = True, null = True)
 
-    class meta:
-        verbose_name_plural = 'News'
-        verbose_name  = 'News'
+    class Meta:
+        verbose_name_plural = "News"
 
     def __str__(self):
         return self.title
@@ -115,6 +129,9 @@ class Software_Tag(models.Model):
     name = models.CharField("Tag Name", max_length=20)
     color = models.CharField("Add color of the tag", max_length=10)
 
+    class Meta:
+        verbose_name_plural = "Software Tags"
+
     def __str__(self):
         return self.name
 
@@ -131,5 +148,8 @@ class Software(models.Model):
 class About(models.Model):
     img_url = models.TextField()
     About = RichTextField()
+
+    class Meta:
+        verbose_name_plural = "About"
 
     

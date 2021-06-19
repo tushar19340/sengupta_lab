@@ -61,8 +61,8 @@ div.hide {
     background-color: transparent;
     width: 100%;
     text-align: center;
-    max-width: 320px;
-    height: 400px;
+    max-width: 360px;
+    height: 430px;
     margin: auto;
     perspective: 1000px;
 }

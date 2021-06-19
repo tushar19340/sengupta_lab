@@ -34,9 +34,29 @@ def team(request):
 
 def papers(request):
 
-    papers = models.Paper.objects.all().order_by('-date')
+    Papers_Category = models.Papers_Category.objects.all()    
+    Papers = models.Paper.objects.all().order_by('-date')
+
+    requested_filters = request.GET.getlist('filter_list')
+    print("requested filters: ", requested_filters)
+    
+    if len(requested_filters) > 0:
+        filtered_papers = []
+
+        for p in Papers:
+            categories = p.category.all()
+            for categories in categories:
+                # print(categories)
+                # print(requested_filters)
+                if categories.name in requested_filters:
+                    filtered_papers.append(p)
+                    break            
+            Papers = filtered_papers
+
     context = {
-        'papers': papers,
+        'papers': Papers,
+        'filters': Papers_Category,
+        'active_filters': requested_filters,
         'papers_page': 'active'
     }
     return render(request, 'papers.html', context)
@@ -44,17 +64,16 @@ def papers(request):
 def softwares(request):
 
     Software_Tags = models.Software_Tag.objects.all()
-    
     softwares = models.Software.objects.all()
 
+    requested_filters = request.GET.getlist('filter_list')
+    print("requested filters: ", requested_filters)
 
-    if request.method == "POST":
-        requested_filters = request.POST.getlist('filter_list')
-        filtered_softwares = []
-
+    filtered_softwares = []
+    if(len(requested_filters) > 0):
         for software in softwares:
-            software_tags = software.tags.all()
-            for tag in software_tags:
+            tags = software.tags.all()
+            for tag in tags:
                 # print(tag)
                 # print(requested_filters)
                 if tag.name in requested_filters:
@@ -65,6 +84,7 @@ def softwares(request):
     context = {
         'softwares': softwares,
         'filters': Software_Tags,
+        'active_filters': requested_filters,
         'software_page': 'active'
     }
     return render(request, 'softwares.html', context)
