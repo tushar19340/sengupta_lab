@@ -21,6 +21,7 @@ body{
 }
 .lab-info {
     padding: 2rem;
+    margin-bottom: 100px;
     box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
 }
 .lab-info p{
@@ -34,3 +35,16 @@ body{
     float: left;
 }
 
+div.tweets {
+    max-height: 100vh;
+    overflow: auto;
+    width: 50%;
+    padding: 0 1rem;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
+
+@media only screen and (max-width: 600px){
+    div.tweets {
+        width: 100%;
+    }
+}
