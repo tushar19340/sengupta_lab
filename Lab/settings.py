@@ -95,10 +95,10 @@ WSGI_APPLICATION = 'Lab.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'bbmhyzdb6oefar0ayyjz',
-       'USER': 'ukpayb0axjdsdnx4mapi',
-       'PASSWORD': '4AQEzzVb2LG7s27GBEB0',
-       'HOST': 'bbmhyzdb6oefar0ayyjz-postgresql.services.clever-cloud.com',
+       'NAME': 'b8xpsstyfimoujquoo5h',
+       'USER': 'uffhrwstvocrsea7lmnh',
+       'PASSWORD': '9454SUdLAa2NXa92Hote',
+       'HOST': 'b8xpsstyfimoujquoo5h-postgresql.services.clever-cloud.com',
        'PORT': '5432',
    }
 }
