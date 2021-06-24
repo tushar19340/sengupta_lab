@@ -51,7 +51,7 @@
                                 <div class="flip-card-back">
                                     <div class="abstract">
                                         <h3>Abstract</h3>
-                                        <p>{{p.abstract}}</p>
+                                        <p>{{p.abstract | safe}}</p>
                                     </div>
                                     <button class="btn btn-primary btn-flip float-right" onclick=flip("id{{p.id}}") >Back</button>
                                 </div>

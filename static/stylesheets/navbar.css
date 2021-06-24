@@ -52,6 +52,11 @@ li.nav-item {
     padding-bottom: 0.2rem;
 }
 
+.icon {
+    font-size: 1.3rem;
+    line-height: 3rem;
+    padding-right: 0.8rem;
+}
 
 
 @media only screen and (max-width: 900px) {

@@ -94,12 +94,13 @@ WSGI_APPLICATION = 'Lab.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'sengupta_DB',
-        'CLIENT': {
-           'host': 'mongodb+srv://django-user:admin@cluster1.epnnr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-        }
-    }
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'bbmhyzdb6oefar0ayyjz',
+       'USER': 'ukpayb0axjdsdnx4mapi',
+       'PASSWORD': '4AQEzzVb2LG7s27GBEB0',
+       'HOST': 'bbmhyzdb6oefar0ayyjz-postgresql.services.clever-cloud.com',
+       'PORT': '5432',
+   }
 }
 
 

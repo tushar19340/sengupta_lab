@@ -1,7 +1,7 @@
 from django.db.models.base import Model
 from ckeditor.fields import RichTextField
 
-from djongo import models
+from django.db import models
 
 class Home(models.Model):
 
@@ -40,7 +40,7 @@ class Papers_Category(models.Model):
     name = models.CharField("Add new category", max_length=20)
     # color = models.CharField("Add color of the tag", max_length=10)
     class Meta:
-        verbose_name_plural = "Papers Category"
+        verbose_name_plural = "Publication Category"
 
     def __str__(self):
         return self.name
@@ -62,7 +62,8 @@ class Paper(models.Model):
 
     category = models.ManyToManyField(Papers_Category, blank=True)
 
-    class meta:
+    class Meta:
+        verbose_name = "Publication"
         verbose_name_plural = 'Publications'
 
     def __str__(self):
@@ -90,7 +91,7 @@ class Team(models.Model):
     member_type = models.ManyToManyField(Member_Type, blank=True)
 
     class Meta:
-        verbose_name_plural = "Team"
+        verbose_name_plural = "Team Members"
 
     def __str__(self):
         return self.name
@@ -120,7 +121,7 @@ class Research(models.Model):
     info = RichTextField()
     publication_details = RichTextField()
 
-    class meta:
+    class Meta:
         verbose_name_plural = 'Research'
 
     def __str__(self):
